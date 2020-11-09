@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'api'], function(){
+    Route::apiResource('cliente','clienteController');
+});
+Route::group(['prefix'=>'api'], function(){
+    Route::apiResource('producto','productoController');
+});
+Route::group(['prefix'=>'api'], function(){
+    Route::apiResource('factura','facturaController');
+});
+Route::group(['prefix'=>'api'], function(){
+    Route::apiResource('detalle_factura','detalle_facturaController');
+});
