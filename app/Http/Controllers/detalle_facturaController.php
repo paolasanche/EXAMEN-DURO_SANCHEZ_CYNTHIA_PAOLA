@@ -72,10 +72,14 @@ class detalle_facturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(detalle_facturaRequest $request, detalle_factura $detalle_factura)
     {
-        //
-    }
+        return $request;
+       $detalle_factura->update($request->all());
+       return response()->json($detalle_factura);
+    } 
+
+
 
     /**
      * Remove the specified resource from storage.
