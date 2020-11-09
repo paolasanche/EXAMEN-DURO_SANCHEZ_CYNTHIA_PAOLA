@@ -79,10 +79,13 @@ class clienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(clienteRequest $request, cliente $cliente)
     {
-        //
-    }
+        return $request;
+       $cliente->update($request->all());
+       return response()->json($cliente);
+    } 
+
 
     /**
      * Remove the specified resource from storage.
@@ -90,8 +93,9 @@ class clienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(cliente $cliente)
     {
-        //
+        $cliente -> delete();
+        return response()->json('el registro ha sido eliminado correctamente');
     }
 }

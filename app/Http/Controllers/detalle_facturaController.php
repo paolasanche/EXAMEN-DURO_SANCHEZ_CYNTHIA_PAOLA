@@ -87,8 +87,9 @@ class detalle_facturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(detalle_factura $detalle_factura)
     {
-        //
+        $detalle_factura -> delete();
+        return response()->json('el registro ha sido eliminado correctamente');
     }
 }
