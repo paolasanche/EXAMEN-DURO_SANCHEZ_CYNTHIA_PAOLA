@@ -12,11 +12,17 @@ class clienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function _construct(cliente $cliente){
+        $this->cliente = $cliente;
+    }
     public function index()
     {
       
-        $clientes = clientes::all();
-        return response()->json(['clientes' => $clientes ]);
+        $cliente = cliente::all();
+        return response()->json(['cliente' => $cliente ]);
 
     }
 
@@ -49,7 +55,8 @@ class clienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = cliente::find($id);
+        return $cliente;
     }
 
     /**

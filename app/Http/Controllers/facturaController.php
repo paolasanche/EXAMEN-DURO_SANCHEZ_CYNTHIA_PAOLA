@@ -46,7 +46,8 @@ class facturaController extends Controller
      */
     public function show($id)
     {
-        //
+        $facturas = facturas::find($id);
+        return $facturas;
     }
 
     /**

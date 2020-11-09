@@ -47,7 +47,8 @@ class detalle_facturaController extends Controller
      */
     public function show($id)
     {
-        //
+        $detalle_facturas = detalle_facturas::find($id);
+        return $detalle_facturas;
     }
 
     /**
