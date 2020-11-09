@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\producto;
+use App\Request\producto as productoRequests;
+
 
 class productoController extends Controller
 {
@@ -36,7 +38,9 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = $this->create($Request->all());
+        return $producto;
+        return response()->json (new productoRequests ($producto),201);
     }
 
     /**

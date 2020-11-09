@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\factura;
+use App\Request\factura as facturaRequests;
+
 class facturaController extends Controller
 {
     /**
@@ -13,8 +15,8 @@ class facturaController extends Controller
      */
     public function index()
     {
-        $facturas = facturas::all();
-        return response()->json(['facturas' => $facturas ]);
+        $factura = factura::all();
+        return response()->json(['factura' => $factura ]);
     }
 
     /**
@@ -35,7 +37,9 @@ class facturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $factura = $this->create($Request->all());
+         return $factura;
+         return response()->json (new facturaRequests ($factura),201);
     }
 
     /**
@@ -46,8 +50,8 @@ class facturaController extends Controller
      */
     public function show($id)
     {
-        $facturas = facturas::find($id);
-        return $facturas;
+        $factura = factura::find($id);
+        return $factura;
     }
 
     /**

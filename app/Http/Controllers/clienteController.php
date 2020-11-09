@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\cliente;
-
+use App\Request\cliente as clienteRequests;
 class clienteController extends Controller
 {
     /**
@@ -44,7 +44,9 @@ class clienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = $this->create($Request->all());
+        return $cliente;
+        return response()->json (new clienteRequests ($cliente),201);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\detalle_factura;
+use App\Request\detalle_factura as detalle_facturaRequests;
 
 class detalle_facturaController extends Controller
 {
@@ -36,7 +37,9 @@ class detalle_facturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $detalle_factura = $this->create($Request->all());
+         return $detalle_factura;
+         return response()->json (new detalle_facturaRequests ($detalle_factura),201);
     }
 
     /**
