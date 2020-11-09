@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\factura;
 class facturaController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class facturaController extends Controller
      */
     public function index()
     {
-        //
+        $facturas = facturas::all();
+        return response()->json(['facturas' => $facturas ]);
     }
 
     /**

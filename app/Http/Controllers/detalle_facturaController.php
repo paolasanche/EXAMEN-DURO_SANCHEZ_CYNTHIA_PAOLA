@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\detalle_factura;
 
 class detalle_facturaController extends Controller
 {
@@ -13,7 +14,8 @@ class detalle_facturaController extends Controller
      */
     public function index()
     {
-        //
+        $detalle_facturas = detalle_facturas::all();
+        return response()->json(['detalle_facturas' => $detalle_facturas ]);
     }
 
     /**
