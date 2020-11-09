@@ -1,0 +1,12 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class cliente extends Model
+{
+    protected $primarykey = "id";
+    protected $fillable = ["id","nombre"];
+
+}
